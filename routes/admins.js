@@ -33,15 +33,15 @@ module.exports = function(app) {
   	console.log(req.body);
 
   	var admin = new Admin({
-  		name:       req.body.name,
-  		site: 	    req.body.site,
+  		name:         req.body.name,
+  		site: 	      req.body.site,
   		encargado:    req.body.encargado,
   		description:  req.body.description
   	});
 
   	admin.save(function(err) {
   		if(!err) {
-  			console.log('Created');
+  			console.log('Created' + admin);
   		} else {
   			console.log('ERROR: ' + err);
   		}
@@ -53,8 +53,8 @@ module.exports = function(app) {
   //PUT - Update a register already exists
   updateAdmin = function(req, res) {
   	Admin.findById(req.params.id, function(err, admin) {
-  		admin.name        = req.body.petId;
-  		admin.site       = req.body.site;
+  		admin.name          = req.body.petId;
+  		admin.site          = req.body.site;
   		admin.encargado     = req.body.encargado;
   		admin.description   = req.body.description;
 
